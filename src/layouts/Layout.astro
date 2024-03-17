@@ -34,7 +34,7 @@ const { description, title, image } = Astro.props;
     <main>
       <slot />
     </main>
-    <Footer />
+    <!-- <Footer /> -->
     <BackToTop />
     <!-- <MadeWithButton /> -->
     <style is:global>
@@ -47,6 +47,7 @@ const { description, title, image } = Astro.props;
       html {
         scroll-behavior: smooth;
       }
+
       .sticky-header {
         @apply fixed z-[9999] bg-white/80 transition dark:bg-dark/80;
         backdrop-filter: blur(5px);

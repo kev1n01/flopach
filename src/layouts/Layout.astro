@@ -26,6 +26,17 @@ const { description, title, image } = Astro.props;
     <meta name="description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="twitter:image" content={image} />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      is:inline
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
     <title>{title}</title>
   </head>
   <body>
@@ -34,9 +45,8 @@ const { description, title, image } = Astro.props;
     <main>
       <slot />
     </main>
-    <!-- <Footer /> -->
+    <Footer />
     <BackToTop />
-    <!-- <MadeWithButton /> -->
     <style is:global>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
@@ -47,7 +57,9 @@ const { description, title, image } = Astro.props;
       html {
         scroll-behavior: smooth;
       }
-
+      #map {
+        height: 300px;
+      }
       .sticky-header {
         @apply fixed z-[9999] bg-white/80 transition dark:bg-dark/80;
         backdrop-filter: blur(5px);
@@ -108,6 +120,7 @@ const { description, title, image } = Astro.props;
         @apply h-auto w-auto;
       }
     </style>
+
     <script>
       import '../scripts/stickymenu.js';
       import '../scripts/dropdown.js';
@@ -115,6 +128,7 @@ const { description, title, image } = Astro.props;
       import '../scripts/scrolltop.js';
       import '../scripts/scrollmenu.js';
       import '../scripts/testimonial.js';
+      import '../scripts/map.js';
     </script>
   </body>
 </html>

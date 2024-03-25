@@ -1,7 +1,7 @@
 ---
 const menuitems = [
   {
-    title: 'Home',
+    title: 'Inicio',
     path: '/#home',
   },
   {
@@ -38,13 +38,14 @@ const menuitems = [
   //   ],
   // },
 ];
+
 ---
 
 <header class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-transparent">
   <div class="container">
     <div class="relative -mx-4 flex items-center justify-between">
       <div class="w-60 max-w-full px-4">
-        {
+        <!-- {
           Astro.url.pathname === '/' ? (
             <>
               <a
@@ -57,18 +58,22 @@ const menuitems = [
               </a>
             </>
           ) : (
-            <>
-              <a
-                href="/"
-                class="navbar-logo block w-full py-5 text-4xl font-semibold text-slate-600 dark:text-slate-600"
-                style="font-family: 'Oxanium';"
-                id="header-logo"
-              >
-                FLOPACH
-              </a>
-            </>
+            ''
           )
-        }
+        } -->
+        <a href="/" class="navbar-logo block w-full py-5">
+          {(Astro.url.pathname === '/') ? (
+            <img
+              src="/assets/logo/flopach-white.png"
+              alt="logo"
+              class="header-logo w-full"
+            />
+          ) : (
+            <img src="/assets/logo/flopach.png" alt="logo" class="w-full dark:hidden" />
+            <img src="/assets/logo/flopach-white.png" alt="logo" class="w-full hidden dark:block" />
+          )}
+          
+        </a>
       </div>
       <div class="flex w-full items-center justify-between px-4">
         <div>
@@ -222,7 +227,7 @@ const menuitems = [
             </span>
           </button>
           <div class="hidden sm:flex">
-            <a
+            <!-- <a
               href="#"
               class={`${
                 Astro.url.pathname === '/'
@@ -231,7 +236,7 @@ const menuitems = [
               }`}
             >
               Reservar cita
-            </a>
+            </a> -->
             <!-- <a
               href="/signup"
               class={`${Astro.url.pathname === '/' ? 'signUpBtn rounded-md bg-white bg-opacity-20 py-2 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark' : 'signUpBtn rounded-md bg-primary py-2 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-blue-dark'}`}

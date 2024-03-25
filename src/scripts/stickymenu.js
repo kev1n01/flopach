@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (logo.length) {
       // === logo change
       if (ud_header.classList.contains('sticky-header')) {
-        document.getElementById("header-logo").style.color = '#475569'
+        document.querySelector(".header-logo").src = '/assets/logo/flopach.png';
       } else {
-        document.getElementById("header-logo").style.color = '#ffffff'
+        document.querySelector('.header-logo').src = '/assets/logo/flopach-white.png';
       }
     }
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (logo.length) {
         // === logo change
         if (ud_header.classList.contains('sticky-header')) {
-          document.getElementById("header-logo").style.color = '#ffffff'
+          document.querySelector('.header-logo').src = '/assets/logo/flopach-white.png';
         }
       }
     }

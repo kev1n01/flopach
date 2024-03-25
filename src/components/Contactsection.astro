@@ -1,15 +1,46 @@
+<script>
+  import { Resend } from 'resend';
+  const resend = new Resend('re_3ugy3bnw_PptAaM73djyXZsG9SdLpH7qH');
+  document.querySelector('#form')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    asynchandleSendMail(event);
+  });
+  const asynchandleSendMail = async (event: Event) => {
+    const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement));
+    console.log(formData);
+
+    const { data, error } = await resend.emails.send({
+      from: 'Acme <onboarding@resend.dev>',
+      to: ['crazyarnold01@gmail.com'],
+      subject: 'MENSAJE DE LA WEB',
+      html: `
+        <strong>Nombre: ${formData.fullName}</strong><br>
+        <strong>Telefono celular: ${formData.phone}</strong><br>
+        <strong>Correo electrónico: ${formData.mail}</strong><br>
+        <p>${formData.message}</p
+      `,
+    });
+    if (error) {
+      return console.error({ error });
+    }
+
+    console.log({ data });
+  };
+</script>
+
 <!-- ====== Contact Start ====== -->
 <section id="contact" class="relative py-20 md:py-[120px]">
   <div class="absolute left-0 top-0 -z-[1] h-full w-full dark:bg-dark"></div>
   <div
-    class="absolute left-0 top-0 -z-[1] h-1/2 w-full bg-slate-300 dark:bg-dark-700 lg:h-[45%] xl:h-1/2"
+    id="map"
+    class="z-1 absolute left-0 top-0 h-1/2 w-full bg-slate-300 dark:bg-dark-700 lg:h-[45%] xl:h-1/2"
   >
   </div>
   <div class="container px-4">
     <div class="-mx-4 flex flex-wrap items-center">
-      <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
+      <div class="w-full px-4 sm:pt-[250px] lg:w-7/12 xl:w-8/12">
         <div class="ud-contact-content-wrapper">
-          <div class="ud-contact-title mb-12 lg:mb-[150px]">
+          <div class="ud-contact-title mb-12 lg:mb-[10px]">
             <span class="mb-6 block text-base font-medium text-dark dark:text-white">
               CONTÁCTENOS
             </span>
@@ -61,7 +92,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
+      <div class="mt-10 w-full px-4 pt-40 lg:w-5/12 xl:w-4/12">
         <div
           class="wow fadeInUp rounded-lg bg-white px-8 py-10 shadow-testimonial dark:bg-dark-2 dark:shadow-none sm:px-10 sm:py-12 md:p-[60px] lg:p-10 lg:px-10 lg:py-12 2xl:p-[60px]"
           data-wow-delay=".2s"
@@ -71,12 +102,13 @@
           >
             Envianos un mensaje
           </h3>
-          <form>
+          <form id="form">
             <div class="mb-[22px]">
               <label for="fullName" class="mb-4 block text-sm text-body-color dark:text-dark-6"
                 >Nombre completo <span class="text-blue-600">*</span></label
               >
               <input
+                required
                 type="text"
                 name="fullName"
                 placeholder="Ingrese su nombre"
@@ -88,6 +120,7 @@
                 >Correo electrónico <span class="text-blue-600">*</span></label
               >
               <input
+                required
                 type="email"
                 name="email"
                 placeholder="ejemplo@ejemplo.com"
@@ -99,6 +132,7 @@
                 >Celular <span class="text-blue-600">*</span></label
               >
               <input
+                required
                 type="text"
                 name="phone"
                 placeholder="999999999"
@@ -110,10 +144,11 @@
                 >Mensaje<span class="text-blue-600">*</span></label
               >
               <textarea
+                required
                 name="message"
-                rows="1"
+                rows="2"
                 placeholder="Ingrese su mensaje aquí"
-                class="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
+                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
               ></textarea>
             </div>
             <div class="mb-0">

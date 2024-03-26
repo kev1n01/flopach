@@ -38,7 +38,6 @@ const menuitems = [
   //   ],
   // },
 ];
-
 ---
 
 <header class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-transparent">
@@ -62,17 +61,20 @@ const menuitems = [
           )
         } -->
         <a href="/" class="navbar-logo block w-full py-5">
-          {(Astro.url.pathname === '/') ? (
-            <img
-              src="/assets/logo/flopach-white.png"
-              alt="logo"
-              class="header-logo w-full"
-            />
-          ) : (
-            <img src="/assets/logo/flopach.png" alt="logo" class="w-full dark:hidden" />
-            <img src="/assets/logo/flopach-white.png" alt="logo" class="w-full hidden dark:block" />
-          )}
-          
+          {
+            Astro.url.pathname === '/' ? (
+              <img src="/assets/logo/flopach-white.png" alt="logo" class="header-logo w-full" />
+            ) : (
+              <>
+                <img src="/assets/logo/flopach.png" alt="logo" class="w-full dark:hidden" />
+                <img
+                  src="/assets/logo/flopach-white.png"
+                  alt="logo"
+                  class="hidden w-full dark:block"
+                />
+              </>
+            )
+          }
         </a>
       </div>
       <div class="flex w-full items-center justify-between px-4">
@@ -81,9 +83,9 @@ const menuitems = [
             id="navbarToggler"
             class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
           >
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-white dark:bg-white"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-white dark:bg-white"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-white dark:bg-white"></span>
           </button>
           <nav
             id="navbarCollapse"

@@ -294,7 +294,11 @@ const teams = [
                 </svg>
               </span>
               <div class="relative z-10 mx-auto mb-5 h-[180px] w-full">
-                <img src={team.image} alt="team image" class="h-[180px] w-full rounded-lg" />
+                <img
+                  src={team.image}
+                  alt="team image"
+                  class="h-[180px] w-full rounded-lg object-contain"
+                />
               </div>
               <div class="text-center">
                 <h4 class="mb-1 text-lg font-semibold text-dark dark:text-white">{team.name}</h4>

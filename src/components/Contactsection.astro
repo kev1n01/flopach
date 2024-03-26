@@ -1,11 +1,11 @@
 <script>
   const alert = document.getElementById('alert');
+  const buttonAlert = document.getElementById('buttonAlert');
   const loader = document.getElementById('loader');
   const loading = document.getElementById('loading');
   const form = document.getElementById('form');
   const buttonSubmit = document.getElementById('buttonSubmit');
 
-  console.log(loader?.style);
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (loader && loading) {
@@ -37,6 +37,12 @@
       }
     };
   };
+
+  buttonAlert?.addEventListener('click', () => {
+    if (alert) {
+      alert.style.display = 'none';
+    }
+  });
 </script>
 
 <!-- ====== Contact Start ====== -->
@@ -49,7 +55,7 @@
   </div>
   <div class="container px-4">
     <div class="-mx-4 flex flex-wrap items-center">
-      <div class="w-full px-4 sm:pt-[250px] lg:w-7/12 xl:w-8/12">
+      <div class="xs:pt-[240px] w-full px-4 sm:pt-[250px] md:pt-[200px] lg:w-7/12 xl:w-8/12">
         <div class="ud-contact-content-wrapper">
           <div class="ud-contact-title mb-12 lg:mb-[10px]">
             <span class="mb-6 block text-base font-medium text-dark dark:text-white">
@@ -103,23 +109,26 @@
           </div>
         </div>
       </div>
-      <div class="sm mt-40 w-full px-4 pt-40 sm:mt-2 lg:w-5/12 xl:mt-12 xl:w-4/12">
+      <div
+        class="xs:pt-2 xs:mt-2 mt-40 w-full px-4 pt-40 sm:mt-2 sm:pt-3 md:pt-[30px] lg:w-5/12 lg:pt-[200px] xl:mt-12 xl:w-4/12"
+      >
         <div
           class="wow fadeInUp rounded-lg bg-white px-8 py-10 shadow-testimonial dark:bg-dark-2 dark:shadow-none sm:px-10 sm:py-12 md:p-[60px] lg:p-10 lg:px-10 lg:py-12 2xl:p-[60px]"
           data-wow-delay=".2s"
         >
           <h3
-            class="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]"
+            class="mb-4 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]"
           >
             Envianos un mensaje
           </h3>
           <div
             id="alert"
-            class="rounded-lg border border-teal-200 bg-teal-100 p-4 text-sm text-teal-800 dark:border-teal-900 dark:bg-teal-800/10 dark:text-teal-500"
+            class="mb-2 rounded-lg border border-teal-200 bg-teal-100 p-4 text-sm text-teal-800 dark:border-teal-900 dark:bg-teal-800/10 dark:text-teal-500"
             role="alert"
             style="display: none"
           >
             <span class="font-bold">Mensaje enviado</span>
+            <span id="buttonAlert" class="relative float-right" role="button">x</span>
           </div>
           <form id="form">
             <div class="mb-[22px]">

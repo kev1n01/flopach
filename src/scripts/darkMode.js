@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // themeSwitcher
   const themeSwitcher = document.getElementById('themeSwitcher');
+  const ud_header = document.querySelector('.ud-header');
 
   // Theme Vars
   const userTheme = localStorage.getItem('theme');
@@ -27,9 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.documentElement.classList.contains('dark')) {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
+      if (ud_header.classList.contains('sticky-header')) {
+        document.querySelector('.header-logo').src = '/assets/logo/flopach.png';
+      }
     } else {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+      if (ud_header.classList.contains('sticky-header')) {
+        document.querySelector('.header-logo').src = '/assets/logo/flopach-white.png';
+      }
     }
   };
 

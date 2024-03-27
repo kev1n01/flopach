@@ -2,15 +2,15 @@
   const alert = document.getElementById('alert');
   const buttonAlert = document.getElementById('buttonAlert');
   const loader = document.getElementById('loader');
-  const loading = document.getElementById('loading');
+  const textloading = document.getElementById('textloading');
   const form = document.getElementById('form');
   const buttonSubmit = document.getElementById('buttonSubmit');
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (loader && loading) {
+    if (loader && textloading) {
       loader.style.display = 'block';
-      loading.style.display = 'none';
+      textloading.style.display = 'none';
       buttonSubmit?.setAttribute('disabled', '');
     }
     sendEmail(event);
@@ -28,9 +28,9 @@
         if (alert) {
           alert.style.display = 'block';
         }
-        if (loader && loading) {
+        if (loader && textloading) {
           loader.style.display = 'none';
-          loading.style.display = 'block';
+          textloading.style.display = 'block';
           buttonSubmit?.removeAttribute('disabled');
         }
         form?.reset();
@@ -71,7 +71,7 @@
           </div>
           <div class="mb-12 flex flex-wrap justify-between lg:mb-0 lg:mt-6">
             <div class="mb-8 flex w-[330px] max-w-full">
-              <div class="mr-6 text-[32px] text-primary">
+              <div class="mr-6 text-[32px] text-blue-700">
                 <svg width="29" height="35" viewBox="0 0 29 35" class="fill-current">
                   <path
                     d="M14.5 0.710938C6.89844 0.710938 0.664062 6.72656 0.664062 14.0547C0.664062 19.9062 9.03125 29.5859 12.6406 33.5234C13.1328 34.0703 13.7891 34.3437 14.5 34.3437C15.2109 34.3437 15.8672 34.0703 16.3594 33.5234C19.9688 29.6406 28.3359 19.9062 28.3359 14.0547C28.3359 6.67188 22.1016 0.710938 14.5 0.710938ZM14.9375 32.2109C14.6641 32.4844 14.2812 32.4844 14.0625 32.2109C11.3828 29.3125 2.57812 19.3594 2.57812 14.0547C2.57812 7.71094 7.9375 2.625 14.5 2.625C21.0625 2.625 26.4219 7.76562 26.4219 14.0547C26.4219 19.3594 17.6172 29.2578 14.9375 32.2109Z"
@@ -91,7 +91,7 @@
               </div>
             </div>
             <div class="mb-8 flex w-[330px] max-w-full">
-              <div class="mr-6 text-[32px] text-primary">
+              <div class="mr-6 text-[32px] text-blue-700">
                 <svg width="34" height="25" viewBox="0 0 34 25" class="fill-current">
                   <path
                     d="M30.5156 0.960938H3.17188C1.42188 0.960938 0 2.38281 0 4.13281V20.9219C0 22.6719 1.42188 24.0938 3.17188 24.0938H30.5156C32.2656 24.0938 33.6875 22.6719 33.6875 20.9219V4.13281C33.6875 2.38281 32.2656 0.960938 30.5156 0.960938ZM30.5156 2.875C30.7891 2.875 31.0078 2.92969 31.2266 3.09375L17.6094 11.3516C17.1172 11.625 16.5703 11.625 16.0781 11.3516L2.46094 3.09375C2.67969 2.98438 2.89844 2.875 3.17188 2.875H30.5156ZM30.5156 22.125H3.17188C2.51562 22.125 1.91406 21.5781 1.91406 20.8672V5.00781L15.0391 12.9922C15.5859 13.3203 16.1875 13.4844 16.7891 13.4844C17.3906 13.4844 17.9922 13.3203 18.5391 12.9922L31.6641 5.00781V20.8672C31.7734 21.5781 31.1719 22.125 30.5156 22.125Z"
@@ -103,13 +103,10 @@
                   ¿Cómo podemos ayudarte?
                 </h5>
                 <p class="text-base text-body-color dark:text-dark-6">mecanicaflopach@gmail.com</p>
-                <p class="mt-1 text-base text-body-color dark:text-dark-6">
-                  <!-- contact@yourdomain.com -->
-                </p>
               </div>
             </div>
             <div class="mb-8 flex w-[330px] max-w-full">
-              <div class="mr-6 text-[32px] text-primary">
+              <div class="mr-6 text-[32px] text-blue-700">
                 <svg width="36" height="30" viewBox="0 0 36 30" class="fill-current">
                   <path
                     d="M 12 0 C 5.371094 0 0 5.371094 0 12 C 0 18.628906 5.371094 24 12 24 C 18.628906 24 24 18.628906 24 12 C 24 5.371094 18.628906 0 12 0 Z M 12 2 C 17.523438 2 22 6.476563 22 12 C 22 17.523438 17.523438 22 12 22 C 6.476563 22 2 17.523438 2 12 C 2 6.476563 6.476563 2 12 2 Z M 10.9375 3.875 L 10.5 12.0625 L 10.59375 12.9375 L 16.75 18.375 L 17.71875 17.375 L 12.625 11.96875 L 12.1875 3.875 Z"
@@ -121,11 +118,26 @@
                   Horario de atención
                 </h5>
                 <p class="text-base text-body-color dark:text-dark-6">
-                  Lunes a Sábado: 08:00 AM - 06:00 PM
+                  Lunes a Sábado: 8:00 am-6:00 pm
                 </p>
                 <p class="mt-1 text-base text-body-color dark:text-dark-6">
                   Domingo: Previa anticipación
                 </p>
+              </div>
+            </div>
+            <div class="mb-8 flex w-[330px] max-w-full">
+              <div class="mr-6 text-[32px] text-blue-700">
+                <svg width="36" height="30" viewBox="0 0 36 30" class="fill-current">
+                  <path
+                    d="M 24.503906 7.503906 C 22.246094 5.246094 19.246094 4 16.050781 4 C 9.464844 4 4.101563 9.359375 4.101563 15.945313 C 4.097656 18.050781 4.648438 20.105469 5.695313 21.917969 L 4 28.109375 L 10.335938 26.445313 C 12.078125 27.398438 14.046875 27.898438 16.046875 27.902344 L 16.050781 27.902344 C 22.636719 27.902344 27.996094 22.542969 28 15.953125 C 28 12.761719 26.757813 9.761719 24.503906 7.503906 Z M 16.050781 25.882813 L 16.046875 25.882813 C 14.265625 25.882813 12.515625 25.402344 10.992188 24.5 L 10.628906 24.285156 L 6.867188 25.269531 L 7.871094 21.605469 L 7.636719 21.230469 C 6.640625 19.648438 6.117188 17.820313 6.117188 15.945313 C 6.117188 10.472656 10.574219 6.019531 16.054688 6.019531 C 18.707031 6.019531 21.199219 7.054688 23.074219 8.929688 C 24.949219 10.808594 25.980469 13.300781 25.980469 15.953125 C 25.980469 21.429688 21.523438 25.882813 16.050781 25.882813 Z M 21.496094 18.445313 C 21.199219 18.296875 19.730469 17.574219 19.457031 17.476563 C 19.183594 17.375 18.984375 17.328125 18.785156 17.625 C 18.585938 17.925781 18.015625 18.597656 17.839844 18.796875 C 17.667969 18.992188 17.492188 19.019531 17.195313 18.871094 C 16.894531 18.722656 15.933594 18.40625 14.792969 17.386719 C 13.90625 16.597656 13.304688 15.617188 13.132813 15.320313 C 12.957031 15.019531 13.113281 14.859375 13.261719 14.710938 C 13.398438 14.578125 13.5625 14.363281 13.710938 14.1875 C 13.859375 14.015625 13.910156 13.890625 14.011719 13.691406 C 14.109375 13.492188 14.058594 13.316406 13.984375 13.167969 C 13.910156 13.019531 13.3125 11.546875 13.0625 10.949219 C 12.820313 10.367188 12.574219 10.449219 12.390625 10.4375 C 12.21875 10.429688 12.019531 10.429688 11.820313 10.429688 C 11.621094 10.429688 11.296875 10.503906 11.023438 10.804688 C 10.75 11.101563 9.980469 11.824219 9.980469 13.292969 C 9.980469 14.761719 11.050781 16.183594 11.199219 16.382813 C 11.347656 16.578125 13.304688 19.59375 16.300781 20.886719 C 17.011719 21.195313 17.566406 21.378906 18 21.515625 C 18.714844 21.742188 19.367188 21.710938 19.882813 21.636719 C 20.457031 21.550781 21.648438 20.914063 21.898438 20.214844 C 22.144531 19.519531 22.144531 18.921875 22.070313 18.796875 C 21.996094 18.671875 21.796875 18.597656 21.496094 18.445313 Z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h5 class="mb-[18px] text-lg font-semibold text-dark dark:text-white">Llámenos</h5>
+                <p class="text-base text-body-color dark:text-dark-6">+51 957235173</p>
+                <p class="text-base text-body-color dark:text-dark-6">+51 978610524</p>
+                <p class="text-base text-body-color dark:text-dark-6">+51 933865935</p>
               </div>
             </div>
           </div>
@@ -162,7 +174,7 @@
                 type="text"
                 name="nombre"
                 placeholder="Ingrese su nombre"
-                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
+                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-blue-700 focus:outline-none dark:border-dark-3 dark:text-dark-6"
               />
             </div>
             <div class="mb-[22px]">
@@ -176,7 +188,7 @@
                 type="email"
                 name="Correo electrónico"
                 placeholder="ejemplo@ejemplo.com"
-                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
+                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-blue-700 focus:outline-none dark:border-dark-3 dark:text-dark-6"
               />
             </div>
             <div class="mb-[22px]">
@@ -193,7 +205,7 @@
                 size="9"
                 maxlength="9"
                 placeholder="999999999"
-                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
+                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-blue-700 focus:outline-none dark:border-dark-3 dark:text-dark-6"
               />
             </div>
             <div class="mb-[30px]">
@@ -205,7 +217,7 @@
                 name="Mensaje"
                 rows="2"
                 placeholder="Ingrese su mensaje aquí"
-                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-dark-6"
+                class="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-body-color placeholder:text-body-color/60 focus:border-blue-700 focus:outline-none dark:border-dark-3 dark:text-dark-6"
               ></textarea>
             </div>
             <input type="hidden" name="_captcha" value="false" />
@@ -214,13 +226,13 @@
               <button
                 id="buttonSubmit"
                 type="submit"
-                class="inline-flex w-full items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-blue-dark"
+                class="inline-flex w-full items-center justify-center rounded-md bg-blue-600 px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-blue-700"
               >
-                <span id="loading">Enviar</span>
+                <span id="textloading">Enviar</span>
                 <span id="loader" style="display: none">
                   <svg
                     aria-hidden="true"
-                    class="inline h-4 w-4 animate-spin fill-blue-600 text-gray-200 dark:text-gray-200"
+                    class="inline h-4 w-4 animate-spin fill-blue-700 text-gray-200 dark:text-gray-200"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

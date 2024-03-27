@@ -15,21 +15,22 @@ renderer.setClearColor(0x000000, 0)
 model.appendChild(renderer.domElement)
 
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera(20, w / h, 0.1, 1000)
-// camera.rotation.y = 45 / 180 * Math.PI
-// camera.position.x = 40
-// camera.position.y = 100
-camera.position.z = 10
+const camera = new THREE.PerspectiveCamera(15, w / h, 0.01, 1000)
+camera.position.x = -6
+camera.position.y = 3.4
+camera.position.z = 15
 scene.add(camera)
 
 
-//add light
-const directionalLight = new THREE.DirectionalLight(0xffffff, 10)
+//add light 
+const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 15)
 directionalLight.position.set(0, 1, 0)
 scene.add(directionalLight)
 
-const light = new THREE.AmbientLight(0x404040)
-scene.add(light)
+//ad ambientlight blue
+const ambientLight = new THREE.AmbientLight(0x404040, 5)
+scene.add(ambientLight)
+
 
 
 //display loading model...
@@ -54,7 +55,7 @@ const loader = new GLTFLoader(manager).setPath('assets/model/')
 loader.load('scene.gltf',
     (gltf) => {
         const car = gltf.scene
-        car.position.set(1, 0, -5)
+        car.position.set(.5, 1, 0)
         car.scale.set(1.5, 1.5, 1.5)
         obj = car
         scene.add(car)
@@ -67,23 +68,25 @@ loader.load('scene.gltf',
 )
 
 
-// const controls = new OrbitControls(camera, renderer.domElement)
-// controls.enableDamping = false
-// controls.enableZoom = true
-// controls.enablePan = false
-// controls.minDistance = 5
-// controls.maxDistance = 20
-// controls.minPolarAngle = 0.5
-// controls.maxPolarAngle = 1.5
-// controls.target = new THREE.Vector3(0, 0, 0)
-// controls.update()
+const controls = new OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
+controls.enableZoom = false
+controls.enablePan = false
+controls.minDistance = 5
+controls.maxDistance = 30
+controls.minPolarAngle = 0.1
+controls.maxPolarAngle = 1.5
+controls.dampingFactor = 0.01;
+controls.rotateSpeed = 1;
+controls.target = new THREE.Vector3(0, 0, 0)
+controls.update()
 
 // animation
 function animation() {
     requestAnimationFrame(animation)
-    // controls.update()
-    obj.rotation.y += 0.002;
-    obj.rotation.x += 0.00001;
+    controls.update()
+    obj.rotation.y += 0.001;
+    obj.rotation.x += 0.000006;
     renderer.render(scene, camera)
 }
 

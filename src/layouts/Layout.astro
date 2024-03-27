@@ -34,6 +34,9 @@ const { description, title, image } = Astro.props;
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
+    <script>
+      import '../scripts/model.js';
+    </script>
     <title>{title}</title>
   </head>
   <body>
@@ -115,6 +118,11 @@ const { description, title, image } = Astro.props;
       .common-carousel .swiper-button-next svg,
       .common-carousel .swiper-button-prev svg {
         @apply h-auto w-auto;
+      }
+
+      #model > canvas {
+        max-width: 100%;
+        justify-content: center;
       }
     </style>
 

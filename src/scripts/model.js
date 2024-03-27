@@ -35,6 +35,7 @@ scene.add(light)
 //display loading model...
 const manager = new THREE.LoadingManager();
 manager.onStart = function (url, itemsLoaded, itemsTotal) {
+    document.getElementById('loading').classList.add('items-center', 'text-center')
     document.getElementById('loading').style.display = 'block'
 };
 
@@ -42,6 +43,7 @@ manager.onLoad = function () {
     document.getElementById('loading').style.display = 'none'
 };
 manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+    document.getElementById('loading').classList.add('items-center', 'text-center')
     document.getElementById('loading').style.display = 'block'
 };
 

@@ -47,7 +47,7 @@ manager.onProgress = function (url, itemsLoaded, itemsTotal) {
 
 
 //load model 
-const loader = new GLTFLoader(manager).setPath('../public/assets/model/')
+const loader = new GLTFLoader(manager).setPath('assets/model/')
 
 loader.load('scene.gltf',
     (gltf) => {

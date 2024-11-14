@@ -1,59 +1,3 @@
-<script>
-  const form = document.getElementById('form');
-  const alert = document.getElementById('alert');
-  const buttonAlert = document.getElementById('buttonAlert');
-  const loader = document.getElementById('loader');
-  const textloading = document.getElementById('textloading');
-  const buttonSubmit = document.getElementById('buttonSubmit');
-
-  form?.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    // Mostrar loader
-    if (loader && textloading) {
-      loader.style.display = 'block';
-      textloading.style.display = 'none';
-      buttonSubmit?.setAttribute('disabled', '');
-    }
-
-    try {
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData);
-
-      const response = await fetch('https://formsubmit.co/mecanicaflopach@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        // Mostrar alerta de éxito
-        if (alert) {
-          alert.style.display = 'block';
-        }
-        form?.reset();
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      // Restaurar estado original
-      if (loader && textloading) {
-        loader.style.display = 'none';
-        textloading.style.display = 'block';
-        buttonSubmit?.removeAttribute('disabled');
-      }
-    }
-  });
-
-  buttonAlert?.addEventListener('click', () => {
-    if (alert) {
-      alert.style.display = 'none';
-    }
-  });
-</script>
-
 <!-- ====== Contact Start ====== -->
 <section id="contact" class="relative py-20 md:py-[120px]">
   <div class="absolute left-0 top-0 -z-[1] h-full w-full dark:bg-dark"></div>
@@ -173,7 +117,7 @@
             <span class="font-bold">Mensaje enviado</span>
             <span id="buttonAlert" class="relative float-right" role="button">x</span>
           </div>
-          <form id="form">
+          <form id="form" method="POST" action="#">
             <div class="mb-[22px]">
               <label for="nombre" class="mb-4 block text-sm text-body-color dark:text-dark-6"
                 >Nombre completo <span class="text-blue-600">*</span></label

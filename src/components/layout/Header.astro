@@ -47,12 +47,12 @@ const menuitems = [
 <header class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-transparent">
   <div class="container">
     <div
-      class="subheader to-transparentp-3 relative flex justify-between bg-gradient-to-r from-transparent via-blue-950 p-2 "
+      class="subheader to-transparentp-3 relative flex justify-between dark:bg-gradient-to-r dark:from-transparent dark:via-blue-950 p-2 bg-gradient-to-r via-slate-400 from-transparent"
     >
       <div class="justify-start">
         <a
           href="mailto:mecanicaflopach@gmail.com"
-          class="flex pl-2 text-sm text-gray-7 hover:text-white "
+          class="flex pl-2 text-sm dark:text-gray-7 text-slate-600 hover:text-slate-900 font-semibold dark:hover:text-white"
           target="_blank"
         >
           <svg width="34" height="25" viewBox="0 0 34 25" class="mr-2 w-5 fill-current">
@@ -66,7 +66,7 @@ const menuitems = [
       <div class="flex justify-end">
         <a
           href="https://www.facebook.com/mecanicaautomotrizflopach/"
-          class="px-3 text-gray-7 hover:text-white"
+          class="px-3 dark:text-gray-7 text-slate-600 hover:text-slate-900 font-semibold dark:hover:text-white"
           target="_blank"
         >
           <svg
@@ -82,7 +82,7 @@ const menuitems = [
             ></path>
           </svg>
         </a>
-        <a href="https://wa.link/jb2rhk" class="px-3 text-gray-7 hover:text-white" target="_blank">
+        <a href="https://wa.link/jb2rhk" class="px-3 dark:text-gray-7 text-slate-600 hover:text-slate-900 font-semibold dark:hover:text-white" target="_blank">
           <svg
             width="24"
             height="24"
@@ -97,7 +97,7 @@ const menuitems = [
         </a>
         <a
           href="https://maps.app.goo.gl/Cjb3J8BEDZABX9wY7"
-          class="px-3 text-gray-7 hover:text-white"
+          class="px-3 dark:text-gray-7 text-slate-600 hover:text-slate-900 font-semibold dark:hover:text-white"
           target="_blank"
         >
           <svg
@@ -132,10 +132,20 @@ const menuitems = [
             ''
           )
         } -->
-        <a href="/" class="navbar-logo block w-full py-5">
+        <a href="/" class="navbar-logo dark:block hidden w-full py-5">
           {
             Astro.url.pathname === '/' ? (
               <img src="/assets/logo/flopach-white.png" alt="logo" class="header-logo w-full" />
+            ) : (
+              <></>
+            )
+          }
+        </a>
+
+        <a href="/" class="navbar-logo dark:hidden block w-full py-5">
+          {
+            Astro.url.pathname === '/' ? (
+              <img src="/assets/logo/flopach.png" alt="logo" class="header-logo w-full" />
             ) : (
               <></>
             )
@@ -148,9 +158,9 @@ const menuitems = [
             id="navbarToggler"
             class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
           >
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-white dark:bg-white"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-white dark:bg-white"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-white dark:bg-white"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-slate-700 dark:bg-white"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-slate-700 dark:bg-white"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-slate-700 dark:bg-white"></span>
           </button>
           <nav
             id="navbarCollapse"
@@ -167,8 +177,8 @@ const menuitems = [
                         class={` ${index}
                           ${
                             Astro.url.pathname === '/'
-                              ? 'ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10'
-                              : 'ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-body-color dark:lg:text-dark-6 xl:ml-10'
+                              ? 'ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark dark:group-hover:text-slate-100  group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0'
+                              : ''
                           }
                           `}
                       >
@@ -226,9 +236,7 @@ const menuitems = [
         <div class="flex items-center justify-end pr-16 lg:pr-0">
           <button class="inline-flex cursor-pointer items-center" id="themeSwitcher">
             <span
-              class={`hidden dark:block ${
-                Astro.url.pathname === '/' ? 'text-white' : 'text-dark dark:text-white'
-              }`}
+              class={`hidden dark:block text-slate-800 dark:text-white`}
             >
               <svg
                 class="fill-current"
@@ -244,9 +252,7 @@ const menuitems = [
               </svg>
             </span>
             <span
-              class={`block dark:hidden ${
-                Astro.url.pathname === '/' ? 'text-white' : 'text-dark dark:text-white'
-              }`}
+              class={`block dark:hidden text-slate-800 dark:text-white`}
             >
               <svg
                 class="fill-current"

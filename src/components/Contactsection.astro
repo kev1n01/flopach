@@ -1,42 +1,51 @@
 <script>
+  const form = document.getElementById('form');
   const alert = document.getElementById('alert');
   const buttonAlert = document.getElementById('buttonAlert');
   const loader = document.getElementById('loader');
   const textloading = document.getElementById('textloading');
-  const form = document.getElementById('form');
   const buttonSubmit = document.getElementById('buttonSubmit');
 
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    // Mostrar loader
     if (loader && textloading) {
       loader.style.display = 'block';
       textloading.style.display = 'none';
       buttonSubmit?.setAttribute('disabled', '');
     }
-    sendEmail(event);
-  });
-  const sendEmail = (event: Event) => {
-    const formdata = new FormData(event.target as HTMLFormElement);
-    const data = Object.fromEntries(formdata);
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://formsubmit.co/mecanicaflopach@gmail.com', true);
-    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
-    xhr.send(JSON.stringify(data));
 
-    xhr.onload = function (e) {
-      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    try {
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+
+      const response = await fetch('https://formsubmit.co/mecanicaflopach@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        // Mostrar alerta de éxito
         if (alert) {
           alert.style.display = 'block';
         }
-        if (loader && textloading) {
-          loader.style.display = 'none';
-          textloading.style.display = 'block';
-          buttonSubmit?.removeAttribute('disabled');
-        }
         form?.reset();
       }
-    };
-  };
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      // Restaurar estado original
+      if (loader && textloading) {
+        loader.style.display = 'none';
+        textloading.style.display = 'block';
+        buttonSubmit?.removeAttribute('disabled');
+      }
+    }
+  });
 
   buttonAlert?.addEventListener('click', () => {
     if (alert) {
